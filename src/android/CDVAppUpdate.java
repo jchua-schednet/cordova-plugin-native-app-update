@@ -186,6 +186,7 @@ public class CDVAppUpdate extends CordovaPlugin {
                     update_avail = 1;
                     String force_str = null;
                     try {
+                      if (force_api != null) {
                         force_str = Jsoup.connect(force_api)
                                     .ignoreContentType(true)
                                     .timeout(30000)
@@ -199,6 +200,7 @@ public class CDVAppUpdate extends CordovaPlugin {
                             String key = force_keys.next();
                             resultObj.put(key, force_data.get(key));
                         }
+                      }
                     } catch (IOException e) {
                         StringWriter sw = new StringWriter();
                         PrintWriter pw = new PrintWriter(sw);
