@@ -186,7 +186,7 @@ public class CDVAppUpdate extends CordovaPlugin {
                     update_avail = 1;
                     String force_str = null;
                     try {
-                      if (force_api != null) {
+                      if (force_api != null && !force_api.equals("null")) {
                         force_str = Jsoup.connect(force_api)
                                     .ignoreContentType(true)
                                     .timeout(30000)
