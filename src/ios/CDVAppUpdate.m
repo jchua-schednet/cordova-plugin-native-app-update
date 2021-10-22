@@ -43,7 +43,7 @@ static NSString *const TAG = @"CDVAppUpdate";
 
             if ([currentVersionNumber compare:appStoreVersionNumber] == NSOrderedAscending) {
                 NSLog(@"%@ Need to update [%@ != %@]", TAG, appStoreVersion, currentVersion);
-                if ([force_api length] > 0) {
+                if (force_api != (id) [NSNull null] && [force_api length] > 0) {
                     NSURL* force_url = [NSURL URLWithString:[NSString stringWithFormat:force_api]];
                     NSData* force_data = [NSData dataWithContentsOfURL:force_url];
                     NSDictionary* force_lookup = [NSJSONSerialization JSONObjectWithData:force_data options:0 error:nil];
