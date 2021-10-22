@@ -55,6 +55,10 @@ static NSString *const TAG = @"CDVAppUpdate";
                 NSLog(@"%@ Force Update: %i", TAG, update_force);
                 update_avail = YES;
                 break;
+            } else if ((idx==0) && !([currentVersionNumber compare:appStoreVersionNumber] == NSOrderedSame)) {
+                break;
+            } else if ((idx==1) && !([currentVersionNumber compare:appStoreVersionNumber] == NSOrderedSame)) {
+                break;
             }
         }
     }

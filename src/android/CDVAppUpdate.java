@@ -182,7 +182,7 @@ public class CDVAppUpdate extends CordovaPlugin {
             String[] currentVersionArr = currentVersion.split("\\.");
             String[] newVersionArr = newVersion.split("\\.");
             for (int i=0; i<currentVersionArr.length; i++) {
-                if (Float.valueOf(currentVersionArr[i]) < Float.valueOf(newVersionArr[i])) {
+                if (Integer.valueOf(currentVersionArr[i]) < Integer.valueOf(newVersionArr[i])) {
                     update_avail = 1;
                     String force_str = null;
                     try {
@@ -220,6 +220,10 @@ public class CDVAppUpdate extends CordovaPlugin {
                         return;
                     }
                     break;
+                } else if (i == 0 && Integer.valueOf(currentVersionArr[i]) != Integer.valueOf(newVersionArr[i])) {
+                  break;
+                } else if (i == 1 && Integer.valueOf(currentVersionArr[i]) != Integer.valueOf(newVersionArr[i])) {
+                  break;
                 }
             }
         }
